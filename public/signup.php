@@ -1,5 +1,9 @@
 <?php
   require_once("./config.php");
+  if (isLoggedIn()) {
+    header("Location: index.php");
+    return;
+}
 ?>
 <?php include("./includes/header.php"); ?>
   <body>
@@ -33,7 +37,7 @@
                     name="user_phone"
                     id="user_phone"
                     class="form-control"
-                    placeholder="Enter your 10 digit phone number"
+                    placeholder="Enter your 11 digit phone number"
                   />
                 </div>
 
@@ -166,12 +170,12 @@
         $("nav").addClass("navbar-light");
 
 
-        $("#user_phone").val("903202020");
-        $("#user_fname").val("Some");
-        $("#user_lname").val("Name");
-        $("#user_dob").val("2000/07/19");
-        $("#user_email").val("admin@gmail.com");
-        $("#user_password").val("admin");
+        // $("#user_phone").val("903202020");
+        // $("#user_fname").val("Some");
+        // $("#user_lname").val("Name");
+        // $("#user_dob").val("2000/07/19");
+        // $("#user_email").val("admin@gmail.com");
+        // $("#user_password").val("admin");
 
         
       function handleError(about, message) {
