@@ -1,5 +1,8 @@
-<nav class="navbar navbar-expand-md px-md-5">
-  <a class="navbar-brand" href="<?php echo SROOT."/public/index.php"; ?>"><img src="<?php echo SROOT."/public/media/images/logo/aaa_logo.png";?>" class="d-inline-block align-top" style="max-height:100px;"></img></a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark px-md-5">
+  <a class="navbar-brand" href="<?php echo SROOT."/public/index.php"; ?>">
+  <p class="m-0">Hotel Management</p>
+  <!-- <img src="<?php echo SROOT."/public/media/images/logo/aaa_logo.png";?>" class="d-inline-block align-top" style="max-height:100px;"></img> -->
+</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -25,7 +28,7 @@
           >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo SROOT."/public/aboutus.php"; ?>">About Us</a>
+        <a class="nav-link" href="<?php echo SROOT."/public/myBooking.php"; ?>">My Booking</a>
       </li>
       <li class="nav-item dropdown">
         <a

@@ -27,4 +27,25 @@
       rel="stylesheet"
       />
     <title>Hotel Management</title>
+    <style>
+      #my-btn{
+        background-color: blue;
+        color: white;
+        border:none;
+        padding: 12px 20px;
+        border-radius:  32px
+      }
+      #my-btn:hover{
+        background-color: green;
+      }
+      #test{
+        transition: 1s;
+      }
+      #test:hover{
+        color: red;
+        font-size: 50px;
+      }
+      
+
+    </style>
   </head>

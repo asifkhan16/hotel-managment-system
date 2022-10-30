@@ -1,6 +1,6 @@
-SetEnv env_db_name "hotel"
-SetEnv env_user_name "asif"
-SetEnv env_password "12345678"
+SetEnv env_db_name "hotel_management"
+SetEnv env_user_name "ZEHRI"
+SetEnv env_password "ijaz1234"
 SetEnv env_db_host "localhost"
 
 # We have used infinityfree.net as our remote host to store ftp files. You may disable this feature by commenting the code

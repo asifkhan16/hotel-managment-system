@@ -2,33 +2,34 @@
 require_once("./config.php");
 include("./includes/header.php");
 ?>
-  <body>
-    <header>
-      <?php include("./includes/navbar.php"); ?>
-    </header>
-    <div class="container my-5">
-      <div class="section-title">
-        <h2>Our finest collection of rooms</h2>
-      </div>
-      <div class="row custom-room-cards">
-        <?php
-            $sql = "SELECT * FROM rooms";
 
-            $statement = $pdo->prepare($sql);
-            $statement->execute();
+<body>
+  <header>
+    <?php include("./includes/navbar.php"); ?>
+  </header>
+  <div class="container my-5">
+    <div class="section-title">
+      <h2>Our finest collection of rooms</h2>
+    </div>
+    <div class="row custom-room-cards">
+      <?php
+      $sql = "SELECT * FROM rooms";
 
-            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $statement = $pdo->prepare($sql);
+      $statement->execute();
 
-            foreach ($rows as $row) {
-                // echo $row["room_image"];
-               
-                $room_image = IMAGEROOT.$row["room_image"]; ?>
+      $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach ($rows as $row) {
+        // echo $row["room_image"];
+
+        $room_image = IMAGEROOT . $row["room_image"]; ?>
         <!-- Room element start -->
         <div class="room-card col-md-6">
           <div class="card card-expanded">
             <div class="basic">
               <div class="card-body">
-              <img src="<?= $room_image ?>" />
+                <img src="<?= $room_image ?>" />
 
               </div>
               <div class="card-footer">
@@ -59,13 +60,12 @@ include("./includes/header.php");
           </div>
         </div>
         <!-- Room element end -->
+      <?php
+      }
+      ?>
 
-        <?php
-            }
-        ?>
-
-        <!-- Room element start -->
-        <!-- <div class="col-md-6">
+      <!-- Room element start -->
+      <!-- <div class="col-md-6">
           <div class="card card-expanded">
             <div class="basic">
               <div class="card-body">
@@ -93,24 +93,25 @@ include("./includes/header.php");
             </div>
           </div>
         </div> -->
-        <!-- Room element end -->
-      </div>
+      <!-- Room element end -->
     </div>
-    <?php include("./includes/footer.php"); ?>
-    <script>
-         $(document).ready(function() {
-        $("nav").eq(0).addClass("bg-dark");
-        $("nav").eq(0).addClass("navbar-dark");
+  </div>
+  <?php include("./includes/footer.php"); ?>
+  <script>
+    $(document).ready(function() {
+      $("nav").eq(0).addClass("bg-dark");
+      $("nav").eq(0).addClass("navbar-dark");
 
-        $("footer").eq(0).addClass("bg-dark");
-        $("footer").eq(0).addClass("text-light");
-        // bg-dark navbar-dark 
+      $("footer").eq(0).addClass("bg-dark");
+      $("footer").eq(0).addClass("text-light");
+      // bg-dark navbar-dark 
 
-        // $(".details").click(function () {
-        //   event.preventDefault();
-        //   console.log("HELLO");
-        // });
+      // $(".details").click(function () {
+      //   event.preventDefault();
+      //   console.log("HELLO");
+      // });
     });
-    </script>
+  </script>
 </body>
+
 </html>
