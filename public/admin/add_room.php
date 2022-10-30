@@ -1,20 +1,20 @@
 <?php
-  require("../config.php");
-  include("./includes/header.php");
+require("../config.php");
+include("./includes/header.php");
 ?>
-<section class="content admin-form">
+<section class="content p-5 admin-form">
 
   <div class="container">
-  <h2 class="">Add Room</h2>
+    <h2 class="">Add Room</h2>
     <!-- Start of form -->
-    <form action="" id="add_room_form" method="post" enctype="multipart/form-data" >
+    <form action="" id="add_room_form" method="post" enctype="multipart/form-data">
       <div class="text-danger">
-      <?php
+        <?php
         // if (isset($_SESSION["message"])) {
         //     echo $_SESSION["message"];
         //     unset($_SESSION["message"]);
         // }
-      ?>
+        ?>
       </div>
       <div class="row">
         <div class="col-sm-12 col-md-6 col-6">
@@ -88,13 +88,13 @@
     <!-- End of form -->
   </div>
 </section>
-     
+
 <?php include("./includes/footer.php"); ?>
 <script>
-    function handleError(about, message) {
-      $(`#${about}`).addClass("is-invalid");
-        $(`#${about}_error`).html(message);
-    }
+  function handleError(about, message) {
+    $(`#${about}`).addClass("is-invalid");
+    $(`#${about}_error`).html(message);
+  }
 
   $(document).ready(function() {
     $("#room_number").val("202");
@@ -115,39 +115,40 @@
       $("#add_room").removeClass("btn-danger");
       $("#add_room").addClass("btn-info");
       $("#add_room").html("Creating new room...");
-      e.preventDefault();    
+      e.preventDefault();
       var formData = new FormData(this);
 
       $.ajax({
-          url: "add_room_controller.php",
-          type: "POST",
-          data: formData,
-          success: function (data) {
-            console.log(data);
-            if(data.error == 1) {
-              handleError(data.about, data.message);
-              // $("#add_room").removeClass("btn-primary");
-              $("#add_room").addClass("btn-danger");
-              $("#add_room").html("Add Room");
-            } else {
-              $("#add_room").removeClass("btn-info");
-              $("#add_room").addClass("btn-success");
-              $("#add_room").html("Success");
-              window.location.href = 'rooms.php';
-            }
-          },
-          error: function (data, message, errorThrown) {
-            $("#error-form").html("<span class=\"p-2\">" + message  + errorThrown + "</span>");
-            $("#add_room").addClass("btn-primary");
+        url: "add_room_controller.php",
+        type: "POST",
+        data: formData,
+        success: function(data) {
+          console.log(data);
+          if (data.error == 1) {
+            handleError(data.about, data.message);
+            // $("#add_room").removeClass("btn-primary");
+            $("#add_room").addClass("btn-danger");
             $("#add_room").html("Add Room");
-          }, 
-          cache: false,
-          contentType: false,
-          processData: false
+          } else {
+            $("#add_room").removeClass("btn-info");
+            $("#add_room").addClass("btn-success");
+            $("#add_room").html("Success");
+            window.location.href = 'rooms.php';
+          }
+        },
+        error: function(data, message, errorThrown) {
+          $("#error-form").html("<span class=\"p-2\">" + message + errorThrown + "</span>");
+          $("#add_room").addClass("btn-primary");
+          $("#add_room").html("Add Room");
+        },
+        cache: false,
+        contentType: false,
+        processData: false
       });
     });
   });
 </script>
 
 </body>
+
 </html>

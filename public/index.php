@@ -1,7 +1,8 @@
 <?php
-  require_once("./config.php");
-  include("./includes/header.php");
+require_once("./config.php");
+include("./includes/header.php");
 ?>
+
 <body>
   <header id="home-header">
     <div id="home-header--bg-image">
@@ -20,75 +21,46 @@
         <form id="find-available-rooms-form">
           <div class="form-group">
             <label for="check-in">Check in</label>
-            <input
-              type="hidden"
-              id="check-in"
-              class="form-control"
-              name="check-in"
-              />
+            <input type="hidden" id="check-in" class="form-control" name="check-in" />
             <button id="check-in-button" class="btn input-button">
-            Check in date
+              Check in date
             </button>
           </div>
           <div class="form-group">
             <label for="check-in">Check out</label>
-            <input
-              type="hidden"
-              id="check-out"
-              class="form-control"
-              name="check-out"
-              value=""
-              />
+            <input type="hidden" id="check-out" class="form-control" name="check-out" value="" />
             <button id="check-out-button" class="btn input-button">
-            Check out date
+              Check out date
             </button>
           </div>
           <div class="form-group">
             <label for="form-dropdown">Guests</label>
-            <button
-              class="btn dropdown-toggle"
-              id="form-dropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >
-            Add guests
+            <button class="btn dropdown-toggle" id="form-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add guests
             </button>
             <ul class="dropdown-menu" aria-labelledby="form-dropdown">
               <li class="dropdown-menu-item">
                 <div class="form-group form-group-nested">
                   <label for="count-adults">Adults</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="count-adults"
-                    id="count-adults"
-                    placeholder="Ages 13 or above"
-                    />
+                  <input type="number" class="form-control" name="count-adults" id="count-adults" placeholder="Ages 13 or above" />
                 </div>
                 <div class="form-group form-group-nested">
                   <label for="count-children">Children</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="count-children"
-                    id="count-children"
-                    placeholder="Ages 1-12"
-                    />
+                  <input type="number" class="form-control" name="count-children" id="count-children" placeholder="Ages 1-12" />
                 </div>
               </li>
             </ul>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary" name="find-rooms">
-            Search
+              Search
             </button>
           </div>
         </form>
       </div>
     </section>
     <!-- Featured Rooms -->
+
     <section id="featured-rooms">
       <div class="container my-5 py-5">
         <div class="section-title">
@@ -268,19 +240,20 @@
   </main>
   <?php include("./includes/footer.php"); ?>
   <script>
-    $(document).ready(function () {
-      $("#find-available-rooms-form").submit(function () {
+    $(document).ready(function() {
+      $("#find-available-rooms-form").submit(function() {
         event.preventDefault();
         var indate = $("#check-in").val();
         var outdate = $("#check-out").val();
         var adults = $("#count-adults").val();
         var children = $("#count-children").val();
         console.log(children);
-        if(indate != "" && indate != null && children != null && children != "") {
-          window.location.href=`reservation.php?check_in_date=${indate}&check_out_date=${outdate}&adults=${adults}&children=${children}`;
+        if (indate != "" && indate != null && children != null && children != "") {
+          window.location.href = `reservation.php?check_in_date=${indate}&check_out_date=${outdate}&adults=${adults}&children=${children}`;
         }
       });
     });
   </script>
 </body>
+
 </html>
